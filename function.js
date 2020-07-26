@@ -1,5 +1,3 @@
-
-
 var changeScene = (i) => {
 
     curDate = dateSet[i];
@@ -12,17 +10,17 @@ var changeScene = (i) => {
     clearTimeout(timeIndex1);
     clearTimeout(timeIndex2);
     //update x y domain
-    x.domain(data.map(function (d) { return d.OS; }));
+    x.domain(data.map(d => d.OS));
     y.domain([0, 100]);
 
     //update x y axis
-    xAxis.call(d3.axisBottom(x).tickFormat(function (d) { return d; }));
+    xAxis.call(d3.axisBottom(x).tickFormat(d => d));
     yAxis.call(d3.axisLeft(y).tickFormat(x => `${x}%`));
 
-  
+
     //remove annotations
     d3.selectAll('.labels').remove();
-    
+
     var join = chart.selectAll("rect")
         .data(data);
 
@@ -30,47 +28,26 @@ var changeScene = (i) => {
     join.enter()
         .append("rect")
         .merge(join)
-        .on("mousemove", function (d) {
+        .on("mousemove", d=> {
             tooltip
                 .style("left", d3.event.pageX - 50 + "px")
                 .style("top", d3.event.pageY - 70 + "px")
                 .style("display", "inline-block")
                 .html((d.OS) + "<br>" + (d.value) + "%");
         })
-        .on("mouseout", function (d) { tooltip.style("display", "none"); })
+        .on("mouseout",  d =>  tooltip.style("display", "none") )
         .transition() // and apply changes to all of them
         .duration(1000)
-        .attr("y", function (d) { return y(d.value); })
-        .attr("height", function (d) { return height - y(d.value); })
-        .attr("x", function (d) { return x(d.OS); })
-        // .attr("y", function (d) { return y(0); })
+        .attr("y",  d =>   y(d.value) )
+        .attr("height",  d =>  height - y(d.value))
+        .attr("x",  d =>   x(d.OS))
+        // .attr("y",  d =>  return y(0); })
         .attr("width", x.bandwidth())
-        // .attr("height", function (d) { return height - y(0); })
-        .attr("class", function (d) { return d.OS; })
+        // .attr("height",  d =>  return height - y(0); })
+        .attr("class",  d => d.OS)
         .attr("fill", " #6a5acd")
-        // .on('end', () => {
-            
-        // });
-    // .on("mousemove", function (d) {
-    //     tooltip
-    //         .style("left", d3.event.pageX - 50 + "px")
-    //         .style("top", d3.event.pageY - 70 + "px")
-    //         .style("display", "inline-block")
-    //         .html((d.OS) + "<br>" + (d.value) + "%");
-    // })
-    // .on("mouseout", function (d) { tooltip.style("display", "none"); });
-
     join
         .exit().remove();
-
-    // join.enter().merge(join)
-    //     .transition() // and apply changes to all of them
-    //     .duration(1000)
-    //     .attr("y", function (d) { return y(d.value); })
-    //     .attr("height", function (d) { return height - y(d.value); })
-
-    // join.update().remove();
-
 
     //annotations
     var drawAnnotation = (target, text) => {
@@ -152,7 +129,7 @@ var reset = () => {
     for (var i in active) {
         active[i] = true;
     }
-    
+
     index = -1;
     d3.selectAll('.labels').remove();
     d3.selectAll("rect")
@@ -163,7 +140,5 @@ var reset = () => {
         .text(' ')
     d3.select('#showDate')
         .text('Please use the "next" button to follow narrative visualization or use the number button to choose any slide you want.');
-    
-    
-    
+
 }
