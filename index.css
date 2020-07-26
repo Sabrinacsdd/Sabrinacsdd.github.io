@@ -1,0 +1,120 @@
+body {
+    background-color: #F1F3F3    
+  }
+.axis {
+    font: 15px sans-serif;
+}
+
+.toolTip {
+  position: absolute;
+  display: none;
+  min-width: 80px;
+  height: auto;
+  background: none repeat scroll 0 0 #ffffff;
+  border: 2px solid #6F257F;
+  /* padding: 14px; */
+  text-align: center;
+}
+.showDate{
+  font-size: 30px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* margin-left: 800px;
+  margin-right: 800px; */
+  padding:0.1em;
+  /* border: solid rebeccapurple; */
+}
+
+button { 
+  color: #fff !important;
+  text-decoration: double;
+  background: orange;
+  padding: 20px;
+  
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+}
+button:hover {
+  background: #434343;
+  letter-spacing: 5px;
+ 
+}
+.next{
+  background: green ;
+}
+.reset{
+  background:blue ;
+}
+.row{  
+  left : 50px;
+}
+
+  /* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

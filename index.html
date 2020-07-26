@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!-- title -->
+<title>d3 Final project</title>
+<!-- CSS -->
+<link rel="stylesheet" type="text/css"" href = " index.css" />
+
+<!-- Load bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+<html>
+
+<body>
+    <div class="container-fluid">
+        <div class="row mb-5"></div>
+
+        <div class="row text-center">
+            <!-- Head -->
+            <div class="col text-center">
+                <h1>Mobile Operation System Market Share</h1>
+            </div>
+        </div>
+        <div class="row mb-5"></div>
+        <div class="row">
+            <div class="col-4">
+            </div>
+            <div class="col-4">
+                <button onclick="changeScene(0)">1</button>
+                <button onclick="changeScene(1)">2</button>
+                <button onclick="changeScene(2)">3</button>
+                <button onclick="changeScene(3)">4</button>
+                <button onclick="changeScene(4)">5</button>
+                <button onclick="changeScene(next())" class="next">Next</button>
+                <button onclick="reset()" class="reset">Reset</button>
+            </div>
+
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-12">
+                <p id="showDate" class="showDate">
+                    Please use the "next" button to follow narrative visualization or use the number button to choose
+                    any slide you want.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <p id="conclusion">
+
+                </p>
+            </div>
+            <div class="col-7">
+                <div id="my_data"></div>
+                <!-- <svg id="canvas" width="1000" height="500"></svg> -->
+            </div>
+            <div class="col-1">
+                <input type="checkbox" onclick="checkClick(this)" id="Android" checked>Android<br>
+                <input type="checkbox" onclick="checkClick(this)" id="iOS" checked>iOs<br>
+                <input type="checkbox" onclick="checkClick(this)" id="Series 40" checked>Series 40<br>
+                <input type="checkbox" onclick="checkClick(this)" id="SymbianOS" checked>SymbianOS<br>
+                <input type="checkbox" onclick="checkClick(this)" id="BlackBerry" checked>BlackBerry<br>
+                <input type="checkbox" onclick="checkClick(this)" id="Windows" checked>Windows<br>
+            </div>
+            <div class="col-2">
+                <p>
+                    <i>Please check/uncheck the boxes to select the OS you want to follow.</i>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+<script src="data.js"></script>
+<script src="function.js"></script>
+
+</html>
